@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accessible Interactive Photo Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initializeGallery()">
+
+<h1>My Interactive Photo Gallery</h1>
+<h2>Hover or Focus on an Image</h2>
+
+<div id="display">
+    Hover over an image below to display here.
+</div>
+
+<div class="gallery">
+
+    <figure>
+        <img src="https://picsum.photos/id/1015/300/200"
+             alt="Mountain landscape with river"
+             onmouseover="upDate(this)"
+             onmouseleave="unDo()"
+             onfocus="upDate(this)"
+             onblur="unDo()">
+    </figure>
+
+    <figure>
+        <img src="https://picsum.photos/id/1025/300/200"
+             alt="Golden retriever dog portrait"
+             onmouseover="upDate(this)"
+             onmouseleave="unDo()"
+             onfocus="upDate(this)"
+             onblur="unDo()">
+    </figure>
+
+    <figure>
+        <img src="https://picsum.photos/id/1035/300/200"
+             alt="Beach sunset with orange sky"
+             onmouseover="upDate(this)"
+             onmouseleave="unDo()"
+             onfocus="upDate(this)"
+             onblur="unDo()">
+    </figure>
+
+    <figure>
+        <img src="https://picsum.photos/id/1043/300/200"
+             alt="Forest pathway with sunlight"
+             onmouseover="upDate(this)"
+             onmouseleave="unDo()"
+             onfocus="upDate(this)"
+             onblur="unDo()">
+    </figure>
+
+    <figure>
+        <img src="https://picsum.photos/id/1050/300/200"
+             alt="City skyline at night"
+             onmouseover="upDate(this)"
+             onmouseleave="unDo()"
+             onfocus="upDate(this)"
+             onblur="unDo()">
+    </figure>
+
+    <figure>
+        <img src="https://picsum.photos/id/1069/300/200"
+             alt="Snow-covered mountain peak"
+             onmouseover="upDate(this)"
+             onmouseleave="unDo()"
+             onfocus="upDate(this)"
+             onblur="unDo()">
+    </figure>
+
+</div>
+
+<script>
+
+function upDate(previewPic) {
+    console.log("Mouse over or focus triggered");
+
+    let displayDiv = document.getElementById("display");
+    displayDiv.style.backgroundImage = "url('" + previewPic.src + "')";
+    displayDiv.innerHTML = previewPic.alt;
+}
+
+function unDo() {
+    console.log("Mouse leave or blur triggered");
+
+    let displayDiv = document.getElementById("display");
+    displayDiv.style.backgroundImage = "none";
+    displayDiv.innerHTML = "Hover over an image below to display here.";
+}
+
+function initializeGallery() {
+    console.log("Page loaded - initializing gallery");
+
+    let images = document.querySelectorAll("img");
+
+    for (let i = 0; i < images.length; i++) {
+        images[i].setAttribute("tabindex", "0");
+        console.log("Tabindex added to image " + i);
+    }
+}
+
+</script>
+
+</body>
+</html>
