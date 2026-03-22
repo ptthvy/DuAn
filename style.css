@@ -1,0 +1,73 @@
+/* ===== MOBILE FIRST ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+figure {
+    border: 2px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+img {
+    width: 100%;
+}
+
+
+/* ===== TABLET (>=772px) ===== */
+@media screen and (min-width: 772px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    figure {
+        border-radius: 50%;
+    }
+
+    figure:last-child {
+        grid-column: span 2;
+    }
+}
+
+
+/* ===== LARGE SCREEN (>=992px) ===== */
+@media screen and (min-width: 992px) {
+    figure {
+        border-radius: 0;
+    }
+
+    figure:nth-child(3n) {
+        grid-column: span 2;
+    }
+}
+
+
+/* ===== PREFERS REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+
+/* ===== DARK MODE ===== */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #111;
+    }
+
+    figure {
+        background-color: #222;
+        color: #ffeb99;
+        border-color: black;
+    }
+}
